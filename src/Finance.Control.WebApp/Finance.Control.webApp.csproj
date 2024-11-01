@@ -12,4 +12,10 @@
     <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.3.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Finance.Control.Application\Finance.Control.Application.csproj" />
+    <ProjectReference Include="..\Finance.Control.Domain\Finance.Control.Domain.csproj" />
+    <ProjectReference Include="..\Finance.Control.Infra.data\Finance.Control.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>

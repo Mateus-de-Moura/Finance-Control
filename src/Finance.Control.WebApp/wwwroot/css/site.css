@@ -94,11 +94,11 @@ html {
     margin-left: -1.5rem;
     color: lightgray;
 }
-.sidebarToggle:hover {
+#sidebarToggle:hover {
     background-color: transparent !important;
 }
 
-.sidebarToggle:focus {
+#sidebarToggle:focus {
     border-color: transparent !important;
     box-shadow: none;
 }
@@ -137,14 +137,15 @@ SIDEBAR
 }
 
 .sidebar-logo {
-    height: 150px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
     .sidebar-logo img {
-        width: 50%;
+        width: 100px;
+        height: 80px;
     }
 
 .sidebar-nav ul {
@@ -260,14 +261,15 @@ SIDEBAR
 NAVBAR
 ===================================*/
 .navbar {
-    box-shadow: 0 1px 15px 0 rgba(69, 65, 78, 0.1);
-    background-color: #ffffff;
-    height: 70px;
+    box-shadow: 0 5px 15px 0 rgba(69, 65, 78, 0.1);
+    background-color: gray;
+    height: 50px;
 }
 
 #sidebarToggle {
     font-size: 18px;
     background-color: transparent;
+    color: black;
 }
 
 .nav-pills .nav-link {

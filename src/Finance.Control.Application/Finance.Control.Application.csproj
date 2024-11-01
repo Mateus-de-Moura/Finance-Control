@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Finance.Control.Domain\Finance.Control.Domain.csproj" />
+    <ProjectReference Include="..\Finance.Control.Infra.data\Finance.Control.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
