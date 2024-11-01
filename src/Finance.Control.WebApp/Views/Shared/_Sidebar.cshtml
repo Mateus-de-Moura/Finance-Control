@@ -1,0 +1,47 @@
+﻿<div id="sidebar-wrapper">
+
+    <button class="btn" id="close-sidebar">
+        <i class="fas fa-times text-white"></i>
+    </button>
+
+    <div class="sidebar-logo">
+        <h6 class="text-white span-ocult">Controle de Finaças</h6>
+    </div>
+
+    <nav class="sidebar-nav"> 
+
+        <ul>
+            <li>
+                <a asp-controller="Home" asp-action="Index" title="Home" class="submenu-link">
+                    <i class="fa-solid fa-house"></i>
+                    <span>
+                        Home Page
+                    </span>      
+                </a>
+            </li>
+        </ul>
+
+        <p class="text-white mx-3 span-ocult">Cadastros</p>
+
+        <ul>          
+            <li>
+                <a asp-controller="Home" asp-action="Privacy" title="Dashboard" class="submenu-link">
+                    <i class="fa-solid fa-user"></i>
+                    <span>
+                        Usuários
+                    </span>                 
+                </a>
+            </li>          
+
+            <li>
+                <a asp-controller="Home" asp-action="Index" title="Home" class="submenu-link">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>
+                        Receitas
+                    </span>      
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+</div>
