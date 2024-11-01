@@ -15,7 +15,8 @@ namespace Finance.Control.Domain.Entities
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
+        public Guid AppRoleId { get; set; }
 
-        public  AppUserRole UserRole { get; set; }
+        public AppRole UserRole { get; set; }
     }
 }

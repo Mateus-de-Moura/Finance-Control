@@ -9,8 +9,7 @@ namespace Finance.Control.Domain.Entities
     public sealed class AppUserRole
     {
         public Guid Id { get; set; } = Guid.NewGuid();
-        public Guid AppUserId { get; set; }
-        public AppUser User { get; set; }
-        public string Role { get; set; }
+        public Guid AppUserId { get; set; }      
+        public Guid AppRoleId { get; set; }
     }
 }

@@ -1,31 +1,14 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Finance.Control.webApp;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Host.ConfigureAppConfiguration((_, configurationBuilder) =>
-//{
-//    configurationBuilder
-//        .AddEnvironmentVariables()
-//        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-//});
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
 // Add services to the container.
-builder.Services.AddMiniProfiler();
 
-builder.Services.AddControllersWithViews()
-    .AddRazorRuntimeCompilation();
+builder.Services.AddServices(builder.Configuration);
 
-
-builder.Services
-    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
-    {
-        options.ExpireTimeSpan = TimeSpan.FromHours(24);
-        options.Cookie.MaxAge = options.ExpireTimeSpan;
-        options.SlidingExpiration = true;
-        options.LoginPath = "/Account/Login";
-        options.AccessDeniedPath = "/Account/AccessDenied";
-    });
 
 var app = builder.Build();
 

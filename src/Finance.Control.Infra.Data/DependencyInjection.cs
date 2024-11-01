@@ -16,6 +16,8 @@ namespace Finance.Control.Infra.Data
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetValue<string>("CONNECTION_STRING")));
 
+            services.AddScoped<AppDbContext>();
+
             return services;
         }
     }

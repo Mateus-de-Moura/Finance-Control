@@ -13,6 +13,7 @@ namespace Finance.Control.Infra.Data.Contexts
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<AppUser> AppUser { get; set; }
+        public DbSet<AppRole> AppRole { get; set; }
         public DbSet<AppUserRole> Role { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
