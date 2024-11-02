@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Finance.Control.webApp.Extensions
+namespace Finance.Control.webApp.Common.Extensions
 {
     public static class ControllerExtensions
     {

@@ -1,4 +1,8 @@
 ﻿using Ardalis.Result;
+using AutoMapper;
+using Finance.Control.Application.Common.Models;
+using Finance.Control.Application.Dtos;
+using Finance.Control.Application.Extensions;
 using Finance.Control.Domain.Entities;
 using Finance.Control.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Finance.Control.Application.Services
 {
-    public class AppUserService(AppDbContext context)
+    public class AppUserService(AppDbContext context, IMapper mapper)
     {
 
         public async Task<Result<AppUser>> AuthAsync(string email, string password)
@@ -20,7 +24,7 @@ namespace Finance.Control.Application.Services
             {
                 var user = await context.AppUser
                     .Include(x => x.Role)
-                    .FirstOrDefaultAsync(x => x.Email.Equals(email));             
+                    .FirstOrDefaultAsync(x => x.Email.Equals(email));
 
                 if (user is null)
                     return Result.NotFound();
@@ -32,6 +36,26 @@ namespace Finance.Control.Application.Services
                     return Result.Invalid(new ValidationError("Email", "Usuário ou senha inválidos", string.Empty, ValidationSeverity.Info));
 
                 return Result.Success(user);
+            }
+            catch (Exception e)
+            {
+                return Result.Error(e.Message);
+            }
+        }
+
+
+        public async Task<Result<PaginatedList<AppUserResponseDto>>> GetPagedAppUserAsync(GetPagedRequest request)
+        {
+            try
+            {             
+                var paged = await context
+                    .AppUser
+                    .Include(x => x.Role)                   
+                    .OrderBy(x => x.Name)
+                    .Select(x => mapper.Map<AppUserResponseDto>(x))
+                    .PaginatedListAsync(request.PageNumber, request.PageSize);
+
+                return Result.Success(paged);
             }
             catch (Exception e)
             {

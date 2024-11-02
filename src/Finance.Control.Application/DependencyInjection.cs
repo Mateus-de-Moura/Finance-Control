@@ -1,4 +1,5 @@
-﻿using Finance.Control.Application.Services;
+﻿using Finance.Control.Application.Mappers;
+using Finance.Control.Application.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,6 +16,10 @@ namespace Finance.Control.Application
         {
             // Services
             services.AddScoped<AppUserService>();
+
+            //Automapper
+            services.AddAutoMapper(typeof(DomainToDtoMappingProfile));
+            services.AddAutoMapper(typeof(DtoToDomainMappingProfile));
 
             return services;
         }
