@@ -10,5 +10,7 @@ namespace Finance.Control.Domain.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+
+        public ICollection<AppUser> appUsers { get; set; }
     }
 }

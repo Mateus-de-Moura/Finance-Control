@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Finance.Control.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241101213253_INITIAL")]
+    [Migration("20241102183709_INITIAL")]
     partial class INITIAL
     {
         /// <inheritdoc />
@@ -72,61 +72,37 @@ namespace Finance.Control.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppRoleId");
+
                     b.ToTable("AppUser");
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("1e8b965f-a2ec-408b-a949-9f7fb137b3c4"),
-                            AppRoleId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            AppRoleId = new Guid("f39b093c-9887-4a86-bba5-48be3c1466e4"),
                             Email = "admin@admin.com",
                             IsActive = true,
                             Name = "Admin",
-                            PasswordHash = "$2a$11$5gfe82V/itxoCVt.rIBLRuvSLuUyAT5Xlc5/DzQKqREb4bNSP4fzC",
-                            PasswordSalt = "$2a$11$5gfe82V/itxoCVt.rIBLRu"
+                            PasswordHash = "$2a$11$Dek/UjfM88NP6dtESR0tTe05bClGjxbMY5fZM34NR9DvlMWr51aHW",
+                            PasswordSalt = "$2a$11$Dek/UjfM88NP6dtESR0tTe"
                         });
-                });
-
-            modelBuilder.Entity("Finance.Control.Domain.Entities.AppUserRole", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AppRoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId")
-                        .IsUnique();
-
-                    b.ToTable("Role");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("716edf53-63ac-499a-9579-093492b99b10"),
-                            AppRoleId = new Guid("f39b093c-9887-4a86-bba5-48be3c1466e4"),
-                            AppUserId = new Guid("1e8b965f-a2ec-408b-a949-9f7fb137b3c4")
-                        });
-                });
-
-            modelBuilder.Entity("Finance.Control.Domain.Entities.AppUserRole", b =>
-                {
-                    b.HasOne("Finance.Control.Domain.Entities.AppUser", null)
-                        .WithOne("UserRole")
-                        .HasForeignKey("Finance.Control.Domain.Entities.AppUserRole", "AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Finance.Control.Domain.Entities.AppUser", b =>
                 {
-                    b.Navigation("UserRole");
+                    b.HasOne("Finance.Control.Domain.Entities.AppRole", "Role")
+                        .WithMany("appUsers")
+                        .HasForeignKey("AppRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Finance.Control.Domain.Entities.AppRole", b =>
+                {
+                    b.Navigation("appUsers");
                 });
 #pragma warning restore 612, 618
         }

@@ -20,7 +20,8 @@ namespace Finance.Control.Infra.Data.Configurations
                 Id = new Guid("1e8b965f-a2ec-408b-a949-9f7fb137b3c4"),
                 Email = "admin@admin.com",
                 IsActive = true,
-                Name = "Admin"
+                Name = "Admin",
+                AppRoleId = new Guid("f39b093c-9887-4a86-bba5-48be3c1466e4")
             };
 
             var passwordSalt = BCrypt.Net.BCrypt.GenerateSalt();

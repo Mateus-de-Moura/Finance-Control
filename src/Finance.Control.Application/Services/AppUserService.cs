@@ -19,15 +19,8 @@ namespace Finance.Control.Application.Services
             try
             {
                 var user = await context.AppUser
-                    .FirstOrDefaultAsync(x => x.Email.Equals(email));
-
-                var appUserRole = await context.Role.FirstOrDefaultAsync(x => x.AppUserId.Equals(user!.Id));
-
-                if (appUserRole != null)
-                {
-                    var roles = await context.AppRole.FirstOrDefaultAsync(x => x.Id.Equals(appUserRole.AppRoleId));
-                    user!.UserRole = roles;
-                }
+                    .Include(x => x.Role)
+                    .FirstOrDefaultAsync(x => x.Email.Equals(email));             
 
                 if (user is null)
                     return Result.NotFound();

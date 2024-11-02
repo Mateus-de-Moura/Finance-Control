@@ -15,6 +15,11 @@ namespace Finance.Control.Infra.Data.Configurations
         {
             builder.HasKey(x => x.Id);
 
+            builder.HasMany(x => x.appUsers)
+                .WithOne(x => x.Role)
+                .IsRequired()
+                .HasForeignKey(x => x.AppRoleId);
+
             var role = new AppRole
             {
                 Id = new Guid("f39b093c-9887-4a86-bba5-48be3c1466e4"),

@@ -16,7 +16,7 @@ namespace Finance.Control.Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,8 +29,8 @@ namespace Finance.Control.Infra.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(150)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(150)", nullable: true),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordSalt = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AppRoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -38,25 +38,12 @@ namespace Finance.Control.Infra.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AppUser", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Role",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AppUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AppRoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Role", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Role_AppUser_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AppUser",
+                        name: "FK_AppUser_AppRole_AppRoleId",
+                        column: x => x.AppRoleId,
+                        principalTable: "AppRole",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.InsertData(
@@ -67,31 +54,22 @@ namespace Finance.Control.Infra.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppUser",
                 columns: new[] { "Id", "AppRoleId", "Email", "IsActive", "Name", "PasswordHash", "PasswordSalt" },
-                values: new object[] { new Guid("1e8b965f-a2ec-408b-a949-9f7fb137b3c4"), new Guid("00000000-0000-0000-0000-000000000000"), "admin@admin.com", true, "Admin", "$2a$11$5gfe82V/itxoCVt.rIBLRuvSLuUyAT5Xlc5/DzQKqREb4bNSP4fzC", "$2a$11$5gfe82V/itxoCVt.rIBLRu" });
-
-            migrationBuilder.InsertData(
-                table: "Role",
-                columns: new[] { "Id", "AppRoleId", "AppUserId" },
-                values: new object[] { new Guid("716edf53-63ac-499a-9579-093492b99b10"), new Guid("f39b093c-9887-4a86-bba5-48be3c1466e4"), new Guid("1e8b965f-a2ec-408b-a949-9f7fb137b3c4") });
+                values: new object[] { new Guid("1e8b965f-a2ec-408b-a949-9f7fb137b3c4"), new Guid("f39b093c-9887-4a86-bba5-48be3c1466e4"), "admin@admin.com", true, "Admin", "$2a$11$Dek/UjfM88NP6dtESR0tTe05bClGjxbMY5fZM34NR9DvlMWr51aHW", "$2a$11$Dek/UjfM88NP6dtESR0tTe" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Role_AppUserId",
-                table: "Role",
-                column: "AppUserId",
-                unique: true);
+                name: "IX_AppUser_AppRoleId",
+                table: "AppUser",
+                column: "AppRoleId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AppRole");
-
-            migrationBuilder.DropTable(
-                name: "Role");
-
-            migrationBuilder.DropTable(
                 name: "AppUser");
+
+            migrationBuilder.DropTable(
+                name: "AppRole");
         }
     }
 }

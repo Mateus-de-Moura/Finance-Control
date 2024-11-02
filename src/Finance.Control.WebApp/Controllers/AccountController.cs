@@ -53,7 +53,7 @@ namespace Finance.Control.webApp.Controllers
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Value.Id.ToString()));
             identity.AddClaim(new Claim(ClaimTypes.Name, user.Value.Name));
            
-            identity.AddClaim(new Claim(ClaimTypes.Role, user.Value.UserRole.Name.ToString()));       
+            identity.AddClaim(new Claim(ClaimTypes.Role, user.Value.Role.Name.ToString()));       
              
             var principal = new ClaimsPrincipal(identity);
 
