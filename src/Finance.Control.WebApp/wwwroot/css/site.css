@@ -10,6 +10,7 @@
     --secondary-color-bg: #343A40;
     --primary-dark-color-bg: #343A40;
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -42,22 +43,22 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 
@@ -94,14 +95,15 @@ html {
     margin-left: -1.5rem;
     color: lightgray;
 }
-#sidebarToggle:hover {
-    background-color: transparent !important;
-}
 
-#sidebarToggle:focus {
-    border-color: transparent !important;
-    box-shadow: none;
-}
+    #sidebarToggle:hover {
+        background-color: transparent !important;
+    }
+
+    #sidebarToggle:focus {
+        border-color: transparent !important;
+        box-shadow: none;
+    }
 
 input:focus, textarea:focus, select:focus {
     outline: none;
@@ -110,19 +112,21 @@ input:focus, textarea:focus, select:focus {
 
 
 .side-togle {
-    margin-left: 2.5rem !important;    
+    margin-left: 2.5rem !important;
 }
-.side-togle a {
-    font-size: 13px !important;
-    border: none;
-}
+
+    .side-togle a {
+        font-size: 13px !important;
+        border: none;
+    }
 
 .col-8 .side-togle a:focus {
     outline: none !important;
     box-shadow: none !important;
 }
+
 .col-8 .side-togle a:hover {
-  border: none;
+    border: none;
 }
 
 
@@ -152,15 +156,14 @@ SIDEBAR
     padding: 0;
     margin: 0 0 12px 0;
     list-style: none;
-   
 }
 
-.sidebar-nav ul li{
-   color: white;
-}
+    .sidebar-nav ul li {
+        color: white;
+    }
 
 .sidebar-link {
-    padding: 0 .5rem;   
+    padding: 0 .5rem;
 }
 
 
@@ -321,4 +324,5 @@ NAVBAR
     color: red;
 }
 
-   
+
+

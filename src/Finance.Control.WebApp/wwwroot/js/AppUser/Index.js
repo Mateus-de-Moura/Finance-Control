@@ -42,16 +42,16 @@
         ]
     });
 
-    $('#input-search').keypress(function (event) {
+    //$('#input-search').keypress(function (event) {
 
-        var keycode = (event.keyCode ? event.keyCode : event.which);
+    //    var keycode = (event.keyCode ? event.keyCode : event.which);
 
-        if (keycode == '13') {
-            dataTables.ajax.reload();
-        }
+    //    if (keycode == '13') {
+    //        dataTables.ajax.reload();
+    //    }
 
-        event.stopPropagation();
-    });
+    //    event.stopPropagation();
+    //});
 
     $("button").click(() => dataTables.ajax.reload());
 

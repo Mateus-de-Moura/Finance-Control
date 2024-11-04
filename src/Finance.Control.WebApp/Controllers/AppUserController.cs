@@ -18,6 +18,11 @@ namespace Finance.Control.webApp.Controllers
             return View();
         }
 
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
 
         public async Task<JsonResult> GetDataTables(DataTablesParameterModel model)
         {

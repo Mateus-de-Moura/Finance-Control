@@ -1,26 +1,4 @@
-﻿//const $button = document.querySelector('#sidebar-toggle');
-//const $wrapper = document.querySelector('#wrapper');
-//const $titles = document.querySelectorAll('.sidebar-title');
-//const $icons = document.querySelectorAll('.sidebar-icons');
-
-
-//$wrapper.classList.add('toggled');
-//$('.sidebar-brand').hide();
-
-//if ($button) {
-//    $button.addEventListener('click', (e) => {
-//        e.preventDefault();
-//        $wrapper.classList.toggle('toggled');
-//        if ($wrapper.classList.contains('toggled')) {
-           
-//            $('.sidebar-brand').hide();
-
-//        } else {         
-//            $('.sidebar-brand').show();
-//        }
-//    });
-//}
-window.addEventListener('DOMContentLoaded', event => {
+﻿window.addEventListener('DOMContentLoaded', event => {
 
     if (document.querySelector('#sidebar-wrapper')) {
         // Toggle the side navigation
@@ -42,6 +20,44 @@ window.addEventListener('DOMContentLoaded', event => {
             sidebarToggle.addEventListener('click', handleToggle);
         }
     }
+
+    /*====================
+Datatables
+====================*/
+
+    $.extend(true, $.fn.dataTable.defaults, {
+        searching: false,
+        ordering: false,
+        processing: true,
+        serverSide: true,
+        filter: false,
+        lengthChange: false,
+        pageLength: 10,
+        pagingType: "full_numbers",
+        language: {
+            processing: `<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>`,
+            emptyTable: "Sem dados disponíveis",
+            sLengthMenu: "Mostrar _MENU_ registros",
+            sZeroRecords: "Não foram encontrados resultados",
+            sInfo: "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            sInfoEmpty: "Mostrando de 0 até 0 de 0 registros",
+            sInfoFiltered: "",
+            sInfoPostFix: "",
+            sSearch: "Procurar:",
+            sUrl: "",
+            oPaginate: {
+                sNext: '<i class="fa fa-chevron-right"></i>',
+                sPrevious: '<i class="fa fa-chevron-left"></i>',
+                sFirst: '<i class="fa fa-angle-double-left"></i>',
+                sLast: '<i class="fa fa-angle-double-right"></i>'
+            }
+        }, layout: {
+            topStart: null,
+            bottom: 'paging',
+            bottomStart: 'info',
+            bottomEnd: null
+        }
+    });
 
 });
 

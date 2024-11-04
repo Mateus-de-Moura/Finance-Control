@@ -13,7 +13,8 @@ namespace Finance.Control.Application.Mappers
     {
         public DomainToDtoMappingProfile()
         {
-            CreateMap<AppUser, AppUserResponseDto>();
+            CreateMap<AppUser, AppUserResponseDto>()
+                .ForMember(src => src.Role, map => map.MapFrom(dest => dest.Role.Name));
         }
     }
 }
