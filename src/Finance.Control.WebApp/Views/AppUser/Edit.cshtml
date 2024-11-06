@@ -1,4 +1,6 @@
-﻿<form asp-action="Update" method="post">
+﻿@model Finance.Control.webApp.ViewModel.AppUserViewModel
+
+<form asp-action="Update" method="post">
 
     <div class="col-12 mb-2 mb-xl-3 d-flex">
         <div class="col-auto">
@@ -12,5 +14,5 @@
         </div>
     </div>
 
-    <partial name="Partials/_Form" />
+    <partial name="Partials/_Form"  model="@Model"/>
 </form>

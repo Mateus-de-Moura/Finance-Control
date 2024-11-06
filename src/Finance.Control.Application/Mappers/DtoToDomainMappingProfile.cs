@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Finance.Control.Application.Dtos;
+using Finance.Control.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace Finance.Control.Application.Mappers
     {
         public DtoToDomainMappingProfile()
         {
-           
+            CreateMap<AppUserDto, AppUser>();
         }
 
     }
