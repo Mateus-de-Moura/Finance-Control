@@ -1,11 +1,11 @@
 ﻿﻿<div class="col-12 mb-2 mb-xl-3 d-flex">
     <div class="col-auto">
-        <h5 class="card-title text-primary">Gerenciamento de Usuários</h5>
+        <h5 class="card-title text-primary">Gerenciamento de Receitas</h5>
     </div>
 
     <div class="col-auto ms-auto text-end mt-1">
         <a class="btn btn-primary" asp-action="Create">
-            Cadastrar Usuário
+            Cadastrar Receita
         </a>
     </div>
 </div>
@@ -26,24 +26,17 @@
         </button>
     </div>
 
-    <div class="table-responsive">
-        <table class="table mb-5" id="table-user">
-            <thead>
-                <tr>
-                    <th scope="col">Ativo</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Perfil</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
+    <table class="table mb-5" id="table-revenues">
+        <thead>
+            <tr>
+                <th scope="col">Ativo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Perfil</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
-
-@section Scripts {
-    <script src="~/js\appuser\index.js"></script>
-    @*     <script src="d:\projetos\finance-contol\src\finance.control.webapp\wwwroot\js\appuser\index.js"></script> *@
-}

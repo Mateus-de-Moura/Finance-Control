@@ -74,7 +74,7 @@ namespace Finance.Control.Application.Services
             var userMapped = mapper.Map<AppUser>(user);
 
             var passwordSalt = BCrypt.Net.BCrypt.GenerateSalt();
-            var passwordHash = BCrypt.Net.BCrypt.HashPassword("teste", passwordSalt);
+            var passwordHash = BCrypt.Net.BCrypt.HashPassword(user.PassWord, passwordSalt);
 
             userMapped.PasswordSalt = passwordSalt;
             userMapped.PasswordHash = passwordHash;

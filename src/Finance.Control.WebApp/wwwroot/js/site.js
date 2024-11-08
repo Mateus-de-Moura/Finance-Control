@@ -1,7 +1,7 @@
 ﻿window.addEventListener('DOMContentLoaded', event => {
 
     if (document.querySelector('#sidebar-wrapper')) {
-        // Toggle the side navigation
+       
         const sidebarToggle = document.body.querySelector('#sidebarToggle');
         const closeSidebar = document.body.querySelector('#close-sidebar');
 
