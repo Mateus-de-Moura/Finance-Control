@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Finance.Control.Domain.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,8 @@ namespace Finance.Control.Domain.Entities
     public class Revenues
     {
         public Guid Id { get; set; }
-        public string Description { get; set; }
-        public string Type { get; set; }
+        public string Description { get; set; }     
+        public RevenueType Type { get; set; }
         public decimal Value { get; set; }
         public DateTime CreatedAt { get; set; }
     }
