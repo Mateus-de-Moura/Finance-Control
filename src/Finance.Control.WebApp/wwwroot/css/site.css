@@ -81,15 +81,31 @@ html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-control:focus {
-    box-shadow: none;
-    border-color: #0000BF;
-}
+    .login-form .form-control:focus {
+        box-shadow: none;
+        border-color: lightgray;
+    }
 
-.btn-custom {
-    background-color: #0000BF;
-    color: #fff;
-}
+    .login-form .btn-custom {
+        background-color: #0000BF;
+        color: #fff;
+    }
+
+    .login-form .button-show {
+        background-color: transparent;
+        color: #fff;
+        border-color: lightgray;
+    }
+
+        .login-form .button-show:hover {
+            background-color: white;
+            border-color: lightgray;
+        }
+
+        .login-form .button-show:focus {
+            box-shadow: none !important;
+            border-color: lightgray;
+        }
 
     .btn-custom:hover {
         background-color: #000099;
