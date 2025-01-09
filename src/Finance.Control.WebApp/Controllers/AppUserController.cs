@@ -28,9 +28,17 @@ namespace Finance.Control.webApp.Controllers
             return View(user);
         }
 
-        public IActionResult Edit()
+        public async Task<IActionResult> Edit(Guid AppUserId)
         {
-            return View();
+            var appUser = await userService.GetAsync(AppUserId);
+            var roles = await roleService.GetAllAsync();
+
+            var user = appUser.Value.MapAppUserResponseToViewModel();
+
+            if (roles != null)
+                user.AppRoleSelectListItems = roles.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name }).ToList();
+
+            return View(user);
         }
 
 

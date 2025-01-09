@@ -33,8 +33,8 @@
                 data: "id",
                 autoWidth: true,
                 render: function (data) {
-
-                    return `<a href="/AppUser/Edit/${data}" class="my-4" title="Editar">
+                    console.log(data)
+                    return `<a href="/AppUser/Edit?AppUserId=${data}" class="my-4" title="Editar">
                                 <i class="far fa-edit"></i>
                             </a>`;
                 }
