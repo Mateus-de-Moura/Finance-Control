@@ -69,10 +69,17 @@ namespace Finance.Control.webApp.Controllers
                     return RedirectToAction(nameof(Index));
 
                 else
-                {
+                {                 
                     ModelState.AddModelError("", result.ValidationErrors.First().ErrorMessage);
                 }
             }
+
+            var roles = await roleService.GetAllAsync();
+
+            if (roles != null)
+                model.AppRoleSelectListItems = roles.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name }).ToList();
+
+
             return View(model);
         }
     }
