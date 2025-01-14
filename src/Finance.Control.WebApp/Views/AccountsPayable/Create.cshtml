@@ -1,0 +1,20 @@
+﻿@{
+	ViewData["Title"] = "Cadastro de Contas a pagar";
+}
+
+<form asp-action="Create" asp-controller="Category" method="post">
+
+	<div class="col-12 mb-2 mb-xl-3 d-flex">
+		<div class="col-auto">
+			<h5>Cadastro de Contas</h5>
+		</div>
+
+		<div class="col-auto ms-auto text-end mt-1">
+			<a class="btn btn-outline-secondary" asp-action="Index">
+				Voltar
+			</a>
+		</div>
+	</div>
+
+	<partial name="Partials/_Form" model="@Model" />
+</form>

@@ -4,6 +4,7 @@ using Finance.Control.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Finance.Control.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250110134910_ADD_TABLE_CATEGORY")]
+    partial class ADD_TABLE_CATEGORY
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,8 +84,8 @@ namespace Finance.Control.Infra.Data.Migrations
                             Email = "admin@admin.com",
                             IsActive = true,
                             Name = "Admin",
-                            PasswordHash = "$2a$11$adctt.Md6x8dUDIw16XeoeXFdPEg1ut.WmtF9GzJpT2b4EjEqh0OS",
-                            PasswordSalt = "$2a$11$adctt.Md6x8dUDIw16Xeoe"
+                            PasswordHash = "$2a$11$Rg23FnbId1IaHGW7s0OuROmA6m/BW64dD98zEaF1V5ul9pgigweeq",
+                            PasswordSalt = "$2a$11$Rg23FnbId1IaHGW7s0OuRO"
                         });
                 });
 
@@ -92,15 +95,12 @@ namespace Finance.Control.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("CategoryType")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");

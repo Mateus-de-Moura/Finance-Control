@@ -4,11 +4,13 @@ using Finance.Control.Application.Services;
 using Finance.Control.webApp.Common.DataTables;
 using Finance.Control.webApp.Mappers;
 using Finance.Control.webApp.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Finance.Control.webApp.Controllers
 {
+    [Authorize]
     public class AppUserController(AppUserService userService, AppRoleService roleService) : Controller
     {
         public IActionResult Index()

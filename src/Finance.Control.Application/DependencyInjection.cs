@@ -17,6 +17,7 @@ namespace Finance.Control.Application
             // Services
             services.AddScoped<AppUserService>();
             services.AddScoped<AppRoleService>();
+            services.AddScoped<CategoryService>();
 
             //Automapper
             services.AddAutoMapper(typeof(DomainToDtoMappingProfile));

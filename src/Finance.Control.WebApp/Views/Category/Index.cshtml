@@ -1,15 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Usuários";
+    ViewData["Title"] = "Categorias";
 }
 
 ﻿<div class="col-12 mb-2 mb-xl-3 d-flex">
     <div class="col-auto">
-        <h5 class="card-title">Gerenciamento de Usuários</h5>
+        <h5 class="card-title">Gerenciamento de Categorias</h5>
     </div>
 
     <div class="col-auto ms-auto text-end mt-1">
         <a class="btn btn-dark" asp-action="Create">
-            Cadastrar Usuário
+            Cadastrar nova Categoria
         </a>
     </div>
 </div>
@@ -31,13 +31,12 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table mb-5" id="table-user">
+        <table class="table mb-5" id="table-category">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">Ativo</th>
-                    <th scope="col" class="text-center">Nome</th>
-                    <th scope="col" class="text-center">Email</th>
-                    <th scope="col" class="text-center">Perfil</th>
+                    <th scope="col" class="text-center">Nome categoria</th>
+                    <th scope="col" class="text-center">Tipo</th>
                     <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
@@ -47,7 +46,6 @@
     </div>
 </div>
 
-@section Scripts {
-    <script src="~/js\appuser\index.js"></script>
-    @*     <script src="d:\projetos\finance-contol\src\finance.control.webapp\wwwroot\js\appuser\index.js"></script> *@
+@section Scripts{
+	<script src="~/js/category/index.js"></script>
 }

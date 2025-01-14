@@ -1,22 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Usuários";
+    ViewData["Title"] = "Contas a pagar";
 }
 
 ﻿<div class="col-12 mb-2 mb-xl-3 d-flex">
     <div class="col-auto">
-        <h5 class="card-title">Gerenciamento de Usuários</h5>
+        <h5 class="card-title">Gerenciamento de Categorias</h5>
     </div>
 
     <div class="col-auto ms-auto text-end mt-1">
         <a class="btn btn-dark" asp-action="Create">
-            Cadastrar Usuário
+            Cadastrar nova Categoria
         </a>
     </div>
 </div>
 
 <div class="card px-0 px-lg-4 pb-lg-4">
-    <div class="d-flex align-items-center my-4">
-        @*  <h5>Pessoas</h5> *@
+    <div class="d-flex align-items-center my-4">      
 
         <div class="col-12 col-lg-3 px-0 px-lg-2 mt-1 mt-lg-0 ms-auto">
             <div class="input-group rounded">
@@ -31,13 +30,16 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table mb-5" id="table-user">
+        <table class="table mb-5" id="table-accountsPayable">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">Ativo</th>
-                    <th scope="col" class="text-center">Nome</th>
-                    <th scope="col" class="text-center">Email</th>
-                    <th scope="col" class="text-center">Perfil</th>
+                    <th scope="col" class="text-center">Descrição da conta</th>
+                    <th scope="col" class="text-center">Valor</th>
+                    <th scope="col" class="text-center">Data de vencimento</th>
+                    <th scope="col" class="text-center">Categoria </th>
+                    <th scope="col" class="text-center">Status</th>
+                    <th scope="col" class="text-center">Comprovante de pagamento</th>
                     <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
@@ -46,8 +48,3 @@
         </table>
     </div>
 </div>
-
-@section Scripts {
-    <script src="~/js\appuser\index.js"></script>
-    @*     <script src="d:\projetos\finance-contol\src\finance.control.webapp\wwwroot\js\appuser\index.js"></script> *@
-}
