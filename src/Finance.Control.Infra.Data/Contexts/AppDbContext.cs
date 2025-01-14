@@ -15,6 +15,7 @@ namespace Finance.Control.Infra.Data.Contexts
         public DbSet<AppUser> AppUser { get; set; }
         public DbSet<AppRole> AppRole { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Accounts> Accounts { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

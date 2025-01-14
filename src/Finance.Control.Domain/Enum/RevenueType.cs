@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace Finance.Control.Domain.Enum
 {
-    public enum RevenueType
+    public enum AccountStatus
     {
-        [Description("A vencer")]
-        AVencer = 1,
+        [Description("Pendente")]
+        Pendente,
 
-        [Description("Vencida")]
-        Vencida = 2,
+        [Description("Pago")]
+        Pago,
 
-        [Description("Paga")]
-        Paga = 3
+        [Description("Vencido")]
+        Vencido
     }
 
 }

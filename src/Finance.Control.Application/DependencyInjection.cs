@@ -1,4 +1,5 @@
-﻿using Finance.Control.Application.Mappers;
+﻿using Finance.Control.Application.Common.Factories;
+using Finance.Control.Application.Mappers;
 using Finance.Control.Application.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,8 @@ namespace Finance.Control.Application
             services.AddScoped<AppUserService>();
             services.AddScoped<AppRoleService>();
             services.AddScoped<CategoryService>();
+            services.AddScoped<SelectListFactory>();
+            services.AddScoped<AccountsPayableService>();
 
             //Automapper
             services.AddAutoMapper(typeof(DomainToDtoMappingProfile));

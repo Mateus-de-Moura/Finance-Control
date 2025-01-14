@@ -1,4 +1,4 @@
-﻿
+﻿@model Finance.Control.webApp.ViewModel.AccountsPayableViewModel
 
 
 @* <input type="hidden" asp-for="Id" /> *@
@@ -7,7 +7,7 @@
 	<div class="col-12 mt-5 d-flex">
 		<div class="col-5">
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" id="flexCheckDefault">
+				<input class="form-check-input" type="checkbox" id="flexCheckDefault" asp-for="Active">
 				<label class="form-label" for="flexCheckDefault">
 					Ativo
 				</label>
@@ -19,19 +19,19 @@
 	<div class="col-12 mt-2 mb-xl-3 d-flex">
 		<div class="col-5">
 			<label class="form-label">Descrição da conta</label>
-			<input class="form-control" />
+			<input class="form-control" asp-for="Description"/>
 			<span class="text-danger"></span>
 		</div>
 
 		<div class="col-3">
 			<label class="form-label">Valor</label>
-			<input class="form-control" />
+			<input class="form-control" asp-for="Value"/>
 			<span class="text-danger"></span>
 		</div>
 
 		<div class="col-3">
 			<label class="form-label">Data de vencimento</label>
-			<input class="form-control" type="date" />
+			<input class="form-control" type="date" asp-for="MaturityDate" />
 			<span class="text-danger"></span>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 	<div class="col-12 mt-2 mb-xl-3 d-flex">
 		<div class="col-5">
 			<label class="form-label">Categoria </label>
-			<select class="form-select">
+			<select class="form-select" asp-items="@Model.SelectListCategory" asp-for="CategoryId">
 				<option disabled selected> Selecione</option>				
 			</select>
 			<span class="text-danger"></span>
@@ -47,11 +47,9 @@
 
 		<div class="col-5">
 			<label class="form-label">Status</label>
-			<select class="form-select">
+			<select class="form-select" asp-items="@Model.SelectListStatus" asp-for="status">
 				<option disabled selected> Selecione</option>
-				<option value="Pendente"> Pendente</option>
-				<option value="Pago"> Pago</option>
-				<option value="Vencido"> Vencido</option>
+			
 			</select>
 			<span class="text-danger"></span>
 		</div>

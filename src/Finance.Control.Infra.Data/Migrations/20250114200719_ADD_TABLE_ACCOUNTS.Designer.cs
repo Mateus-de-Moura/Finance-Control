@@ -4,6 +4,7 @@ using Finance.Control.Infra.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Finance.Control.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250114200719_ADD_TABLE_ACCOUNTS")]
+    partial class ADD_TABLE_ACCOUNTS
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +44,6 @@ namespace Finance.Control.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime>("MaturityDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<byte[]>("ProofOfPaymenyt")
                         .HasColumnType("varbinary(max)");
@@ -120,8 +120,8 @@ namespace Finance.Control.Infra.Data.Migrations
                             Email = "admin@admin.com",
                             IsActive = true,
                             Name = "Admin",
-                            PasswordHash = "$2a$11$rBpoPpyYH8x27K4VMdU4Suex0v7C/p4plc8MKLVBuTYZK57u.YaB6",
-                            PasswordSalt = "$2a$11$rBpoPpyYH8x27K4VMdU4Su"
+                            PasswordHash = "$2a$11$yWw8XnhxMTY8BflOSLiYvewGexxXcYqLDNlLRVZ.EPrFvDyfBZ.Im",
+                            PasswordSalt = "$2a$11$yWw8XnhxMTY8BflOSLiYve"
                         });
                 });
 
