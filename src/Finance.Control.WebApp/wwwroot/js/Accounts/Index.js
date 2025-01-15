@@ -24,26 +24,35 @@
             {
                 data: "value",
                 autoWidth: true,
-                render: function (data) {                  
+                render: function (data) {
+
                     let result = (parseFloat(data) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).toString();
-                    debugger
-                    return result.toString();
-                }
-            },            {
+                    return result;
+                },
+                type: 'string'
+            },
+            {
                 data: "maturityDate",
                 autoWidth: true,
-                render: function (data) {                   
+                render: function (data) {
                     var date = new Date(data);
-                    return date.toLocaleDateString('pt-BR');  
+                    return date.toLocaleDateString('pt-BR');
                 }
-            },       
-            { data: "status", autoWidth: true },           
+            },
+            {
+                data: "status",
+                autoWidth: true,
+                type: 'string',
+                render: function (data, type, row) {
+                    return getStatusName(data);
+                }
+            },
             {
                 data: "id",
                 autoWidth: true,
                 render: function (data) {
                     console.log(data)
-                    return `<a href="/AccountsPayable/Edit?CategoryId=${data}" class="my-4" title="Editar">
+                    return `<a href="/AccountsPayable/Edit?AccountPayableId=${data}" class="my-4" title="Editar">
                                 <i class="far fa-edit"></i>
                             </a>`;
                 }
@@ -54,3 +63,12 @@
     $("button").click(() => dataTables.ajax.reload());
 
 });
+
+function getStatusName(status) {
+    const statusMap = {
+        0: 'Pendente',
+        1: 'Pago',
+        2: 'Vencido'
+    };
+    return statusMap[status] || 'Desconhecido';
+}

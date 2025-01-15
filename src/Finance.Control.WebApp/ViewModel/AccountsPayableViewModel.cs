@@ -6,13 +6,14 @@ namespace Finance.Control.webApp.ViewModel
 {
     public class AccountsPayableViewModel
     {
+        public Guid Id { get; set; }
         public bool Active { get; set; }
 
         [Required(ErrorMessage = "Descrição Obrigatória.")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Valor Obrigatório.")]
-        public decimal Value { get; set; }
+        public string Value { get; set; }
 
         [Required(ErrorMessage = "Vencimento Obrigatório.")]
         public DateTime MaturityDate { get; set; }
